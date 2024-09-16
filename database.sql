@@ -17,3 +17,19 @@ create table counters (
 delete from counters;
 
 select * from counters;
+
+CREATE TABLE products (
+    id VARCHAR(100) NOT NULL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    description TEXT,
+    price INT NOT NULL,
+    category_id VARCHAR(100) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_category_id FOREIGN KEY (category_id) REFERENCES categories(id)
+) ENGINE=InnoDB;
+
+drop table products;
+
+drop table categories;
+
+drop table counters;
